@@ -1,0 +1,15 @@
+from gtts import gTTS
+import os
+
+fh = open("speech.txt", "r")
+myText = fh.read().replace("\n", " ")
+
+language = 'en'
+
+output = gTTS(text=myText, lang=language, slow=False)
+
+output.save("Assistant.mp3")
+
+fh.close()
+
+os.system("start Assistant.mp3")

@@ -1,0 +1,57 @@
+# how to convert text to speech
+import speech_recognition as sr
+import pyttsx3
+
+# Initialize the converter 
+converter = pyttsx3.init('espeak')
+
+# Initialize recognizer class (for recognizing the speech)
+
+r = sr.Recognizer()
+
+# Reading Microphone as source
+# listening the speech and store in audio_text variable
+
+with sr.Microphone() as source:
+    print("Talk")
+    audio_text = r.listen(source)
+    print("Time over, thanks")
+# recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
+    
+    try:
+        # using google speech recognition
+        print("Text: "+r.recognize_google(audio_text))
+    except:
+         print("Sorry, I did not get that")
+# Set properties before adding 
+# Things to say 
+  
+# Sets speed percent  
+# Can be more than 100 
+converter.setProperty('rate', 105) 
+# Set volume 0-1 
+converter.setProperty('volume', 1)
+  
+# Queue the entered text  
+# There will be a pause between 
+# each one like a pause in  
+# a sentence
+voices = converter.getProperty('voices')
+converter.setProperty('voice', voices[13].id)
+#print (voices)
+r = sr.Recognizer()
+
+# Reading Microphone as source
+# listening the speech and store in audio_text variable
+
+with sr.Microphone() as source:
+    converter.say("Talk")
+    audio_text = r.listen(source)
+    converter("Time over, thanks")
+# recoginize_() method will throw a request error if the API is unreachable, hence using exception handling 
+
+  
+# Empties the say() queue 
+# Program will not continue 
+# until all speech is done talking 
+converter.runAndWait() 

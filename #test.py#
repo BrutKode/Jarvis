@@ -1,0 +1,23 @@
+# Project Logic
+import speech_recognition as sr
+import datetime
+import wikipedia
+import pyttsx3
+import webbrowser
+import random
+import os
+import re
+
+# Text to speech
+engine = pyttsx3.init('espeak')
+voices = engine.getProperty('voices')
+#print(voices)
+engine.setProperty('voices',voices[1].id)
+
+if re.search ('news', 'news'):
+    webbrowser.open("www.youtube.com")
+
+    
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
