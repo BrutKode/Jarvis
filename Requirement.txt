@@ -1,0 +1,14 @@
+# install all of these via pip [python package installer].
+
+1. chatterbot
+2. chatterbot_corpus
+3. spacy
+4. wikipedia
+5. pyttsx3
+6. pyaudio
+7. SpeechRecognition
+
+# install this via apt [linux pacvkage manager].
+
+1. sudo python spacy.download 'en'
+2. sudo apt install libasound-dev portaudio-19-dev libportaudio2 libportaudiocpp0 ffmpeg0 libav-tools
